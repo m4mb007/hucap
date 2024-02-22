@@ -1,0 +1,26 @@
+<!-- app/views/pdf/_participant_details.html.erb -->
+
+
+<div class="top" style="text-align:center;margin-top:45%;padding:100px">
+  <p style="font-size:48px"><%= @participant.name.upcase %></p>
+  <p style="font-size:30px;margin-top:-40px;"><%= @participant.ics_no %></p>
+</div>
+
+
+<div class="course" style="text-align:center;margin-top:-100px;padding: 0px 70px 0px 70px;">
+  <p style="font-size:18px;font-family:'Poppins', sans-serif;font-weight:500;letter-spacing:0.5px"> has successfully completed <span style="font-weight:800;font-style:italic ">   International Maritime Dangerous
+  Goods - Function Specific (IMDGA)  </span> on the <span style="font-weight:700;font-style:italic "><%= ordinalize_day( @participant.created_at ) %></span> at Plomogroup Training Centre, Pulau Indah. </p>
+</div>
+
+<div class="serial_number" style="margin-top:300px">
+  <span style="font-size:9px;font-style:italic">Serial No: PSB SSA/2024/001</span>
+</div>
+
+<script type="text/javascript">
+  function backBtn(){
+    window.onafterprint = function(){
+        window.location.href = '<%= participants_path %>'; // Adjust the path accordingly
+}
+  }
+  backBtn();
+</script>

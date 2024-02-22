@@ -1,0 +1,33 @@
+<%= form_with(model: participant) do |form| %>
+  <% if participant.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(participant.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+      <ul>
+        <% participant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :ics_no, style: "display: block" %>
+    <%= form.text_field :ics_no, id: 'limitedInput', maxlength: 12 %>
+  </div>
+
+
+  <div>
+  <%= form.label :course_category_id, 'Course' %>
+  <%= form.collection_select(:course_category_id, CourseCategory.all, :id, :name, prompt: 'Select a course') %>
+</div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<div id="<%= dom_id participant %>">
+  <p>
+    <strong>Name:</strong>
+    <%= participant.name %>
+  </p>
+
+  <p>
+    <strong>Ics no:</strong>
+    <%= participant.ics_no %>
+  </p>
+
+  <% if participant.course_category %>
+  <p>Course Category: <%= participant.course_category.name %></p>
+<% else %>
+  <p>Course Category: N/A</p>
+<% end %>
+  
+
+</div>
