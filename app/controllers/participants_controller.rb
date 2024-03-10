@@ -5,9 +5,12 @@ include ApplicationHelper
 
   # GET /participants or /participants.json
   def index
-    @participants = Participant.all
-    # @course_category = Participant.course_category_id
-  end
+      if params[:search_ics].present?
+        @participants = Participant.where("ics_no LIKE ?", "%#{params[:search_ics]}%")
+      else
+        @participants = Participant.all
+      end
+    end
 
   # GET /participants/1 or /participants/1.json
   def show
@@ -72,7 +75,7 @@ include ApplicationHelper
   def download
     participant = Prawn::Document.new
 
-    font_the_seasons =  Rails.root.join('app', 'assets', 'fonts', 'Fontspring-DEMO-theseasons-bd.otf')
+    font_the_seasons =  Rails.root.join('app', 'assets', 'fonts', 'The Seasons Bold.ttf')
     participant.font(font_the_seasons)
 
    
@@ -110,12 +113,12 @@ include ApplicationHelper
 custom_text = custom_text_helper(@participant)
     
     participant.text_box @participant.name,at: [50, 380], align: :center, size: 38, font: "Fontspring-DEMO-theseasons-bd", width: participant.bounds.width - (50 + 50)
-    participant.text_box custom_format_ics_no(@participant.ics_no),at: [0, 290], align: :center, size: 24
+    participant.text_box custom_format_ics_no(@participant.ics_no),at: [0, 285], align: :center, size: 24
 
     font_poppins = Rails.root.join('app', 'assets', 'fonts', 'Poppins-Regular.ttf')
     participant.font(font_poppins)
 
-    participant.text_box custom_text, align: :center, at: [0, 250], font: "Poppins"
+    participant.text_box custom_text, align: :center, at: [0, 240], font: "Poppins"
     
     
     if @participant.serial_num.present?

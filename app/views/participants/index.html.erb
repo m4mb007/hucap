@@ -1,3 +1,9 @@
+<%= form_with(url: participants_path, method: "get") do |form| %>
+  <%= form.text_field :search_ics, placeholder: "Search by ICS" %>
+  <%= form.submit "Search" %>
+<% end %>
+
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Participants</h1>
