@@ -20,12 +20,14 @@
     <%= form.label :ics_no, style: "display: block" %>
     <%= form.text_field :ics_no, id: 'limitedInput', maxlength: 12 %>
   </div>
+  
 
 
   <div>
   <%= form.label :course_category_id, 'Course' %>
   <%= form.collection_select(:course_category_id, CourseCategory.all, :id, :name, prompt: 'Select a course') %>
 </div>
+
 
   <div>
     <%= form.submit %>

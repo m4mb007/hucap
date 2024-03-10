@@ -5,8 +5,14 @@
   </p>
 
   <p>
-    <strong>Ics no:</strong>
-    <%= participant.ics_no %>
+    <strong>IC Number:</strong>
+    <%= custom_format_ics_no(participant.ics_no) %>
+
+  </p>
+
+   <p>
+    <strong>Serial Number:</strong>
+    <%= participant.serial_num %>
   </p>
 
   <% if participant.course_category %>

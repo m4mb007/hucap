@@ -18,4 +18,25 @@ module ApplicationHelper
       end
     end
   end
+
   
+ def from_to(days)
+  if days == 1
+    "on #{ordinalize_day(@participant.created_at)}"
+  else
+    "from #{ordinalize_day(@participant.created_at)} to #{ordinalize_day(@participant.created_at)}"
+  end
+ end
+
+  def custom_text_helper(p)
+    "has successfully completed #{p.course_category.name} held #{from_to(2)} at Plomogroup Training Centre, Pulau Indah. "
+  end
+  
+  def custom_format_ics_no(ics_no)
+    # Customize the formatting logic here
+    ics_no.insert(6, '-').insert(9, '-')
+  end
+
+  def serial_number_helper(p)
+    "Serial No: PSB SSA/2024/0#{p}"
+  end
