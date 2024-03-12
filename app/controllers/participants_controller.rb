@@ -139,6 +139,6 @@ custom_text = custom_text_helper(@participant)
 
     # Only allow a list of trusted parameters through.
     def participant_params
-      params.require(:participant).permit(:name, :ics_no, :course, :course_category_id, :serial_num)
+      params.require(:participant).permit(:name, :ics_no, :course, :course_category_id, :serial_num, :phone, :email)
     end
 end

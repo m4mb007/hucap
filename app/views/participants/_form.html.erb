@@ -22,16 +22,24 @@
     <%= form.label :ics_no, style: "display: block" %>
     <%= form.text_field :ics_no, id: 'limitedInput', maxlength: 12 %>
   </div>
-  
-
 
   <div>
-  <%= form.label :course_category_id, 'Course' %>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+  
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+  <%= form.label :course_category_id, 'Course', style: "display: block" %>
   <%= form.collection_select(:course_category_id, CourseCategory.all, :id, :name, prompt: 'Select a course') %>
 </div>
 
 
   <div>
-    <%= form.submit %>
+    <%= form.submit 'submit' %>
   </div>
 <% end %>

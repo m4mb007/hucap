@@ -1,0 +1,6 @@
+<% @course_categories.each do |course|%>
+    <%= course.name %></br>
+    <%= course.venue %>
+<% end %>
+
+<%= link_to 'Back', participants_path %>
