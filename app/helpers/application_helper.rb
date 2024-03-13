@@ -1,6 +1,7 @@
 # app/helpers/application_helper.rb
 
 module ApplicationHelper
+
     def ordinalize_day(day)
       if day.is_a?(Integer)
         if (11..13).include?(day % 100)
@@ -21,15 +22,15 @@ module ApplicationHelper
 
   
  def from_to(days)
-  if days == 1
+  if days < 1
     "on #{ordinalize_day(@participant.created_at)}"
   else
     "from #{ordinalize_day(@participant.created_at)} to #{ordinalize_day(@participant.created_at)}"
   end
  end
 
-  def custom_text_helper(p)
-    "has successfully completed #{p.course_category.name} held #{from_to(2)} at Plomogroup Training Centre, Pulau Indah. "
+  def custom_text_helper(p,day = 1)
+    "has successfully completed #{p.course_category.name} held #{from_to(day)} at Plomogroup Training Centre, Pulau Indah. "
   end
   
   def custom_format_ics_no(ics_no)
@@ -38,5 +39,5 @@ module ApplicationHelper
   end
 
   def serial_number_helper(p)
-    "Serial No: PSB SSA/2024/0#{p}"
+    "Serial No: PSB SSA/2024/#{p}"
   end

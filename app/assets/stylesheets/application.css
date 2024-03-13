@@ -121,11 +121,3 @@
 
 
 * {font-family:'Poppins', sans-serif;}
-
-
-@font-face {
-     font-family: 'theSeasonBD';
-     src: url('Fontspring-DEMO-theseasons-bd.otf') format('opentype');
-     font-weight: 600;
-     font-style: normal;
-   }

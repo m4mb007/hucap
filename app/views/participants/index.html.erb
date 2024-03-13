@@ -1,7 +1,8 @@
-<%= form_with(url: participants_path, method: "get") do |form| %>
-  <%= form.text_field :search_ics, placeholder: "Search by IC Number" %>
-  <%= form.submit "Search" %>
-<% end %>
+
+<%# form_with(url: participants_path, method: "get") do |form| %>
+  <%# form.text_field :search_ics, placeholder: "Search by IC Number" %>
+  <%# form.submit "Search" %>
+<%# end %>
 
 
 <p style="color: green"><%= notice %></p>
@@ -12,7 +13,7 @@
   <% @participants.each do |participant| %>
     <%= render participant %>
     <p>
-      <%= link_to "Show this participant", participant %>
+      <%= link_to "Show this participant", participant %> | <%= link_to "Download" , download_participant_path(participant) %>
     </p>
   <% end %>
 </div>

@@ -1,13 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @participant %>
+  <%= render @participant %>
 
 <div>
-
-<%= link_to "Download" , download_participant_path(@participant) %>
 
   <%= link_to "Edit this participant", edit_participant_path(@participant) %> |
   <%= link_to "Back to participants", participants_path %>
 
   <%= button_to "Destroy this participant", @participant, method: :delete %>
-  <%= link_to 'Print Details', print_details_participant_path, class: 'btn btn-primary' %>
+  <%# link_to 'Print Details', print_details_participant_path, class: 'btn btn-primary' %>

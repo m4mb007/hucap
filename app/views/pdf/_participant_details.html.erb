@@ -8,8 +8,7 @@
 
 
 <div class="course" style="text-align:center;margin-top:-100px;padding: 0px 70px 0px 70px;">
-  <p style="font-size:18px;font-family:'Poppins', sans-serif;font-weight:500;letter-spacing:0.5px"> has successfully completed <span style="font-weight:800;font-style:italic ">   International Maritime Dangerous
-  Goods - Function Specific (IMDGA)  </span> on the <span style="font-weight:700;font-style:italic "><%= ordinalize_day( @participant.created_at ) %></span> at Plomogroup Training Centre, Pulau Indah. </p>
+  <p style="font-size:18px;font-family:'Poppins', sans-serif;font-weight:500;letter-spacing:0.5px"> has successfully completed <span style="font-weight:800;font-style:italic "> <%= @participant.course_category.name %>  </span> on the <span style="font-weight:700;font-style:italic "><%= ordinalize_day( @participant.created_at ) %></span> at Plomogroup Training Centre, Pulau Indah. </p>
 </div>
 
 <div class="serial_number" style="margin-top:300px">
