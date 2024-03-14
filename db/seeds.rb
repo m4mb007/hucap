@@ -14,3 +14,9 @@ CourseCategory.destroy_all
 #   end
 
 # 
+
+10.times do
+    name = "haizul"
+    
+    Participant.create!(name: name)
+end
