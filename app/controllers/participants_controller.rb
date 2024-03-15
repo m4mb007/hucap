@@ -1,6 +1,8 @@
 class ParticipantsController < ApplicationController
 include ApplicationHelper
+  before_action :authenticate_user!
   before_action :set_participant, only: %i[ show edit update destroy download ]
+  
 
 
   # GET /participants or /participants.json

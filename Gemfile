@@ -67,3 +67,5 @@ group :test do
 end
 
 gem "prawn", "~> 2.4"
+
+gem 'devise'
