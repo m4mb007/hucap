@@ -79,7 +79,7 @@ include ApplicationHelper
     font_the_seasons =  Rails.root.join('app', 'assets', 'fonts', 'The Seasons Bold.ttf')
     participant.font(font_the_seasons)
 
-    # background_image_path = Rails.root.join('app', 'assets', 'images', 'cert.jpg')
+    background_image_path = Rails.root.join('app', 'assets', 'images', 'cert.jpg')  
    
     # Set the desired position for the image
   desired_position = [-35, participant.bounds.height]
@@ -90,15 +90,16 @@ include ApplicationHelper
   participant.bounding_box([0, participant.cursor], width: participant.bounds.width, height: participant.bounds.height - 40, margin: 0) do
     # Place the image at the desired position without resizing it
 
-    #participant.image background_image_path, at: desired_position,
+    participant.image background_image_path, at: desired_position,
     # position: :center,
     # vposition: :center,
-    # width: desired_width,
-    # height: desired_height
+    width: desired_width,
+    height: desired_height,
     # participant.image background_image_path, position: :center,
-    # vposition: :center, at: desired_position,width: 600,
-    # height: 780
-
+    # vposition: :center, at: desired_position,
+    width: 600,
+    height: 780
+  
     end
 
     # participant.move_cursor_to(participant.bounds.height - 50)
@@ -115,9 +116,19 @@ include ApplicationHelper
 
 
     if @participant.name.length > 32
-        participant.text_box @participant.name,at: [50, 380], align: :center, size: 36, width: participant.bounds.width, leading:-10, overflow: :shrink_to_fit
+        participant.text_box @participant.name.upcase,
+        at: [50, 380], 
+        align: :center, 
+        size: 36, 
+        width: participant.bounds.width, 
+        leading:-10,
+        height: participant.bounds.height do
+          stroke_bounds
+        end
       else
-        participant.text_box @participant.name,at: [50, 380], align: :center, size: 36, width: participant.bounds.width - (20 + 20), leading:-10
+        participant.text_box @participant.name.upcase,at: [50, 380], align: :center, size: 36, width: participant.bounds.width - (20 + 20), leading:-10,height: participant.bounds.height do
+        transparent(0.5)  {stroke_bounds} 
+        end
       end
     
 
